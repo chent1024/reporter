@@ -1,12 +1,5 @@
-Exception reporter for laravel-admin
+Exception reporter for laravel-admin, fork from laravel-admin-extensions/reporter
 ======================
-
-This tool stores the exception information into the database and provides a developer-friendly web interface to view the exception information.
-
-[![StyleCI](https://styleci.io/repos/97900053/shield?branch=master)](https://styleci.io/repos/97900053)
-[![Packagist](https://img.shields.io/packagist/l/laravel-admin-ext/reporter.svg?maxAge=2592000)](https://packagist.org/packages/laravel-admin-ext/reporter)
-[![Total Downloads](https://img.shields.io/packagist/dt/laravel-admin-ext/reporter.svg?style=flat-square)](https://packagist.org/packages/laravel-admin-ext/reporter)
-[![Pull request welcome](https://img.shields.io/badge/pr-welcome-green.svg?style=flat-square)]()
 
 ## Screenshot
 
@@ -14,15 +7,24 @@ This tool stores the exception information into the database and provides a deve
 
 ## Installation 
 
+1. 
 ```
-$ composer require laravel-admin-ext/reporter -vvv
+$ composer require laravel-admin-reporter -vvv
 
 $ php artisan vendor:publish --tag=laravel-admin-reporter
 
-$ php artisan migrate --path=vendor/laravel-admin-ext/reporter/database/migrations
+$ php artisan migrate --path=vendor/laravel-admin-reporter/database/migrations
 
-$ php artisan admin:import reporter
 ```
+
+
+2. Add Service Provider to config/app.php in providers section
+```
+Encore\Admin\Reporter\ReporterServiceProvider::class,
+```
+
+3. Admin add menu "exceptions"
+
 
 Open `app/Exceptions/Handler.php`, call `Reporter::report()` inside `report` method:
 ```php

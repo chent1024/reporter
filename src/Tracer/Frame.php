@@ -21,7 +21,8 @@ class Frame
     public function extract()
     {
         preg_match('/#\d+\s([^:]+):?\s?(.*)/', $this->frame, $matches);
-        $this->parseFileAndLine($matches[1]);
+	
+        $this->parseFileAndLine($matches[2]);
         $this->parseCall($matches[2]);
         $this->fetchCodeBlock();
 
@@ -30,7 +31,7 @@ class Frame
 
     public function parseFileAndLine($str)
     {
-        if (Str::startsWith($str, '/')) {
+        if (Str::startsWith($str, DIRECTORY_SEPARATOR)) {
             preg_match('/^([^(]+)\((\d+)\)/', $str, $matches);
             list(, $this->attributes['file'], $this->attributes['line']) = $matches;
         } else {

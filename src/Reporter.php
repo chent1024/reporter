@@ -2,10 +2,10 @@
 
 namespace Encore\Admin\Reporter;
 
-use Encore\Admin\Extension;
+//use Encore\Admin\Extension;
 use Illuminate\Http\Request;
 
-class Reporter extends Extension
+class Reporter
 {
     use BootExtension;
 
@@ -13,8 +13,8 @@ class Reporter extends Extension
      * @var Request
      */
     protected $request;
-
-    /**
+	protected $extensions;
+	/**
      * Reporter constructor.
      *
      * @param Request $request
@@ -120,5 +120,10 @@ class Reporter extends Extension
         }
 
         return $exception->save();
+    }
+	
+	public function extend($name, $class)
+    {
+        $this->extensions[$name] = $class;
     }
 }

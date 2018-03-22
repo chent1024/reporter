@@ -99,7 +99,8 @@ class ExceptionController
 
             $exception = ExceptionModel::findOrFail($id);
             $trace = "#0 {$exception->file}({$exception->line})\n";
-            $frames = (new Parser($trace.$exception->trace))->parse();
+//            $frames = (new Parser($trace.$exception->trace))->parse();
+            $frames = (new Parser($exception->trace))->parse();
             $cookies = json_decode($exception->cookies, true);
             $headers = json_decode($exception->headers, true);
 

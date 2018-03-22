@@ -150,8 +150,8 @@
                     in <a href="javascript:void(0);">{{ $frame->method() }}</a> at line <span class="badge badge-info">{{ $frame->line() }}</span>
                 </div>
                 <div class="window-content collapse {{ $index == 0 ? 'in' : '' }}" id="frame-{{ $index }}">
-                    <pre data-start="{!! $frame->getCodeBlock()->getStartLine() !!}" data-line="{!! $frame->line()-$frame->getCodeBlock()->getStartLine()+1  !!} " class="language-php line-numbers"><code>{!! $frame->getCodeBlock()->output() !!}</code></pre>
-                    <table class="table args" style="background-color: #FFFFFF; margin: 10px 0px 0px 0px;">
+                    <pre data-start="{!! $frame->line() !!}"  data-line="{!! $frame->line()-$frame->getCodeBlock()->getStartLine()+1  !!} " class="language-php line-numbers"><code>{!! $frame->getCodeBlock()->output() !!}</code></pre>
+<!--                    <table class="table args" style="background-color: #FFFFFF; margin: 10px 0px 0px 0px;">
                         <tbody>
                         @foreach($frame->args() as $name => $val)
                             <tr>
@@ -161,7 +161,7 @@
                             </tr>
                         @endforeach
                         </tbody>
-                    </table>
+                    </table>-->
                 </div>
 
             @endforeach
