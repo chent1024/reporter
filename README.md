@@ -1,4 +1,5 @@
 Exception reporter for laravel-admin, fork from laravel-admin-extensions/reporter
+主要降级使laravel5.4可用
 ======================
 
 ## Screenshot
@@ -8,9 +9,8 @@ Exception reporter for laravel-admin, fork from laravel-admin-extensions/reporte
 ## Installation 
 
 1. 
+自定义 repositories, composer update
 ```
-$ composer require laravel-admin-reporter -vvv
-
 $ php artisan vendor:publish --tag=laravel-admin-reporter
 
 $ php artisan migrate --path=vendor/laravel-admin-reporter/database/migrations
