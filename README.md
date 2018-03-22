@@ -18,12 +18,14 @@ $ php artisan migrate --path=vendor/laravel-admin-reporter/database/migrations
 ```
 
 
-2. Add Service Provider to config/app.php in providers section
+2. 
+Add Service Provider to config/app.php in providers section
 ```
 Encore\Admin\Reporter\ReporterServiceProvider::class,
 ```
 
-3. Admin add menu "exceptions"
+3. 
+Admin add menu "exceptions"
 
 
 Open `app/Exceptions/Handler.php`, call `Reporter::report()` inside `report` method:
