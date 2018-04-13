@@ -41,6 +41,7 @@ class ExceptionController
             });
 
             $grid->code();
+            $grid->ip_server('ServerIP');
             $grid->message()->style('width:400px')->display(function ($message) {
                 if (empty($message)) {
                     return '';
