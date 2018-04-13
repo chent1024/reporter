@@ -48,6 +48,7 @@ class Reporter
             // Request info.
             'method'    => $this->request->getMethod(),
             'ip'        => $this->request->getClientIps(),
+            'ip_server' => $this->request->server('SERVER_ADDR'),
             'path'      => $this->request->path(),
             'query'     => array_except($this->request->all(), ['_pjax', '_token', '_method', '_previous_']),
             'body'      => $this->request->getContent(),
@@ -112,6 +113,7 @@ class Reporter
         $exception->cookies = $data['cookies'];
         $exception->headers = $data['headers'];
         $exception->ip = $data['ip'];
+        $exception->ip_server = $data['ip_server'];
 
         try {
             $exception->save();

@@ -56,6 +56,7 @@ class CreateExceptionsTable extends Migration
             $table->text('cookies');
             $table->text('headers');
             $table->string('ip');
+            $table->string('ip_server');
             $table->timestamps();
         });
     }
